@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  subscriptionId: 4d0243f5-b1f4-4bd0-91bb-ce6481e6e810
+  subscriptionId: 9babaf9a-6187-43cb-9b42-a5a35ca118f7
 
 jobs:
   armDeployStaging:
@@ -49,7 +49,7 @@ jobs:
           template: ./arm-templates/storageaccount.json
           parameters: 
             sku=Standard_LRS
-            storageAccountName=globostg002
+            storageAccountName=globostgiris002
             location="${{ env.location }}"
           deploymentMode: incremental
 
@@ -106,7 +106,7 @@ jobs:
           template: ./arm-templates/storageaccount.json
           parameters: 
             sku=Standard_LRS
-            storageAccountName=globostg003
+            storageAccountName=globostgiris003
             location="${{ env.location }}"
           deploymentMode: incremental
 
