@@ -1,16 +1,16 @@
 - run: |
-  docker build -t githubdemo1.azurecr.io/k8sdemo:${GITHUB_SHA::8}
+  docker build -t githubdemo1.azurecr.io/k8sdemo:${GITHUB_SHA:8}
 
 - uses: Azure/container-scan@v0 
   name: Scan image for vulnerabilities
   id: container-scan
   continue-on-error: true
   with:
-    image-name: githubdemo1.azurecr.io/k8sdemo:${GITHUB_SHA::8}
+    image-name: githubdemo1.azurecr.io/k8sdemo:${GITHUB_SHA:8}
 
-- name: Push Docker image - githubdemo1.azurecr.io/k8sdemo:${GITHUB_SHA::8}
+- name: Push Docker image - githubdemo1.azurecr.io/k8sdemo:${GITHUB_SHA:8}
   run: |
-  docker push githubdemo1.azurecr.io/k8sdemo:${GITHUB_SHA::8}
+  docker push githubdemo1.azurecr.io/k8sdemo:${GITHUB_SHA:8}
 
 - name: Post logs to appinsights
   uses: Azure/publish-security-assessments@v0
